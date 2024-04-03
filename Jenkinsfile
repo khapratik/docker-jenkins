@@ -12,7 +12,7 @@ pipeline {
         stage ('Build & Test') {
             steps {
                 echo 'Build & Test'
-                sh 'docker build . -t docker-jenkins:latest'
+                sh 'docker build -t docker-jenkins .'
             }
         }
         
