@@ -13,7 +13,7 @@ pipeline {
         stage ('Build & Test') {
             steps {
                 echo 'Build & Test'
-                sh 'sudo docker build -t docker-jenkins .'
+                sh 'docker build -t docker-jenkins .'
             }
         }
         
