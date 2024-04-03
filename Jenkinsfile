@@ -8,6 +8,13 @@ pipeline {
                 git url: 'https://github.com/khapratik/docker-jenkins.git', branch: 'master'
             }
         }
+
+        stage ('Check Docker existance') {
+            steps {
+                echo 'Build & Test'
+                sh 'docker --version'
+            }
+        }
         
         stage ('Build & Test') {
             steps {
