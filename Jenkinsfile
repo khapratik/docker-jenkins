@@ -9,17 +9,11 @@ pipeline {
             }
         }
 
-        stage ('Check Docker existance') {
-            steps {
-                echo 'Build & Test'
-                sh 'docker --version'
-            }
-        }
         
         stage ('Build & Test') {
             steps {
                 echo 'Build & Test'
-                sh 'docker build -t docker-jenkins .'
+                sh 'sudo docker build -t docker-jenkins .'
             }
         }
         
