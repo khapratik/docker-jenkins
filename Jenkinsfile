@@ -5,7 +5,7 @@ pipeline {
 
         stage ('Code') {
             steps {
-                git url: 'https://github.com/ajitfawade/node-todo-cicd.git', branch: 'master'
+                git url: 'https://github.com/khapratik/docker-jenkins.git', branch: 'master'
             }
         }
         
@@ -16,15 +16,6 @@ pipeline {
             }
         }
         
-        stage ('Login & Push Image') {
-            steps {
-                echo 'Logging in to docker hub and pushing image'
-                withCredentials([usernamePassword('credentialsId':'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]){
-                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-                    sh "docker image push ajitfawade14/node-todo-app:latest"
-                }
-            }
-        }
         
         stage ('Deploy') {
             steps {
